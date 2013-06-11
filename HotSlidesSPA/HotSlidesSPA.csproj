@@ -172,9 +172,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
+    <Compile Include="Models\ChatInfo.cs" />
+    <Compile Include="Models\ChatMessage.cs" />
+    <Compile Include="Models\ChatMonitor.cs" />
+    <Compile Include="Models\MessageOwner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\config.js" />
     <Content Include="App\durandal\amd\almond-custom.js" />
     <Content Include="App\durandal\amd\optimizer.exe" />
     <Content Include="App\durandal\amd\r.js" />
@@ -197,8 +203,10 @@
     <Content Include="App\durandal\widget.js" />
     <Content Include="App\main.js" />
     <Content Include="App\services\logger.js" />
+    <Content Include="App\viewmodels\chat.js" />
     <Content Include="App\viewmodels\home.js" />
     <Content Include="App\viewmodels\shell.js" />
+    <Content Include="App\views\chat.html" />
     <Content Include="App\views\home.html" />
     <Content Include="App\views\nav.html" />
     <Content Include="App\views\shell.html" />
@@ -507,7 +515,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

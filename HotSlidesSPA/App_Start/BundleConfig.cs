@@ -17,12 +17,16 @@ namespace HotSlidesSPA
                 .Include("~/scripts/knockout-{version}.debug.js")
                 .Include("~/scripts/sammy-{version}.js")
                 .Include("~/scripts/toastr.js")
+                .Include("~/scripts/moment.js")
                 .Include("~/scripts/Q.js")
                 .Include("~/scripts/breeze.debug.js")
                 .Include("~/scripts/bootstrap.js")
                 .Include("~/scripts/modernizr-2.6.2.js")
-                .Include("~/scripts/moment.js")
+                .Include("~/Content/Assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
+                .Include("~/Content/Assets/plugins/jquery.cookie.js")
                 .Include("~/Content/Assets/plugins/breakpoints/breakpoints.js")
+
+
                 //  .Include("~/Content/Assets/scripts/app.js")
                 // .Include("~/Content/Assets/plugins/uniform/jquery.uniform.min.js")
                 );

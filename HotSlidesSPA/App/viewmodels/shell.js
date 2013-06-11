@@ -1,10 +1,10 @@
-﻿define(['durandal/system', 'durandal/plugins/router', 'services/logger'],
-    function (system, router, logger) {
+﻿define(['config', 'durandal/system', 'durandal/plugins/router', 'services/logger'],
+    function (config, system, router, logger) {
         var shell = {
             activate: activate,
             router: router
         };
-        
+
         return shell;
 
         //#region Internal Methods
@@ -13,7 +13,7 @@
         }
 
         function boot() {
-            router.mapNav('home');
+            router.map(config.routes);
             log('Hot Towel SPA Loaded!', null, true);
             return router.activate('home');
         }

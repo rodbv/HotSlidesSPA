@@ -13,76 +13,14 @@
         <div class="portlet-body" id="chats">
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 343px;">
                 <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1" style="overflow: hidden; width: auto; height: 343px;">
-                    <ul class="chats">
+                    <ul class="chats" data-bind="foreach: messages">
                         <li class="in">
-                            <img class="avatar" alt="" src="assets/img/avatar1.jpg">
+                            <img class="avatar" alt="" data-bind="attr: { src: Owner.Avatar }">
                             <div class="message">
                                 <span class="arrow"></span>
-                                <a href="#" class="name">Bob Nilson</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <img class="avatar" alt="" src="assets/img/avatar2.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Lisa Wong</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <img class="avatar" alt="" src="assets/img/avatar1.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Bob Nilson</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <img class="avatar" alt="" src="assets/img/avatar3.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Richard Doe</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <img class="avatar" alt="" src="assets/img/avatar3.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Richard Doe</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="out">
-                            <img class="avatar" alt="" src="assets/img/avatar1.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Bob Nilson</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
-                            </div>
-                        </li>
-                        <li class="in">
-                            <img class="avatar" alt="" src="assets/img/avatar3.jpg">
-                            <div class="message">
-                                <span class="arrow"></span>
-                                <a href="#" class="name">Richard Doe</a>
-                                <span class="datetime">at Jul 25, 2012 11:09</span>
-                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-                                       sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                </span>
+                                <a href="#" class="name" data-bind="text: Owner.UserName"></a>
+                                <span class="datetime" data-bind="text: Time"></span>
+                                <span class="body" data-bind="text: Body"></span>
                             </div>
                         </li>
                     </ul>
@@ -92,11 +30,11 @@
             </div>
             <div class="chat-form">
                 <div class="input-cont">
-                    <input class="m-wrap" type="text" placeholder="Type a message here...">
+                    <input class="m-wrap messageToSend" data-bind="value: messageToSend, valueUpdate: 'keyup'" type="text" placeholder="Digite a mensagem aqui...">
                 </div>
                 <div class="btn-cont">
                     <span class="arrow"></span>
-                    <a href="javascript:;" class="btn blue icn-only"><i class="icon-ok icon-white"></i></a>
+                    <button data-bind="click: sendMessage" class="btn blue icn-only"><i class="icon-ok icon-white"></i></button>
                 </div>
             </div>
         </div>
