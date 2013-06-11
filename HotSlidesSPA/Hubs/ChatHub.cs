@@ -26,6 +26,12 @@ namespace HotSlidesSPA.Hubs
             return _chatMonitor.GetChatInfo();
         }
 
+        public void RobotSend()
+        {
+            var generatedMessage = _chatMonitor.GenerateMessage();
+            Clients.All.broadcastMessage(generatedMessage);
+        }
+
         public void Send(ChatMessage message)
         {
             Clients.All.broadcastMessage(message);

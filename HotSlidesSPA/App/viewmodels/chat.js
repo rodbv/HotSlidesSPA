@@ -1,15 +1,15 @@
 ﻿define(['services/logger'], function (logger) {
     var chatInfo = ko.observable(),
-       messages = ko.observableArray(),
-       chatRoom = $.connection.chathub,
-       chatUser = ko.observable({
-           Owner: {
-               Avatar: '/Content/Assets/img/avatar2.jpg',
-               UserName: 'Daniel de Oliveira',
-               UserNick: '@daniel'
-           }
-       }),
-       messageToSend = ko.observable();
+        messages = ko.observableArray(),
+        chatRoom = $.connection.chathub,
+        chatUser = ko.observable({
+            Owner: {
+                Avatar: 'avatar7.png',
+                UserName: 'Daniel de Oliveira',
+                UserNick: '@daniel'
+            }
+        }),
+        messageToSend = ko.observable();
 
     var init = function () {
         chatRoom.server.getChatInfo().done(function (data) {
@@ -20,6 +20,8 @@
 
     function initClient() {
         chatRoom.client.broadcastMessage = function (message) {
+            message.direction = message.Owner.UserNick === chatUser().Owner.UserNick ? 'out' : 'in';
+            message.Time = moment(message.Time).format('hh:mm:ss');
             messages.push(message);
             var cont = $('#chats');
             var list = $('.chats', cont);
@@ -32,7 +34,8 @@
     var sendMessage = function () {
         if (messageToSend() === '' || messageToSend() === undefined)
             return;
-        var message = { Time: '', Owner: chatUser().Owner, Body: messageToSend() };
+        var time = new Date();
+        var message = { Time: time, Owner: chatUser().Owner, Body: messageToSend() };
         chatRoom.server.send(message).done(messageToSend(''));
     };
 
@@ -70,6 +73,7 @@
 
     function activate() {
         logger.log('Chat View Activated', null, 'home', true);
+        setInterval(function () { chatRoom.server.robotSend(); }, 3000);
         return Q.all([initClient(), $.connection.hub.start().done(init)]);
     }
 

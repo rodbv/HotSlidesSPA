@@ -12,5 +12,6 @@ namespace HotSlidesSPA.Models
         public DateTime? Time { get; set; }
 
         public string Body { get; set; }
-    }
+
+      }
 }

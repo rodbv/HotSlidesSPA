@@ -14,11 +14,11 @@
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 343px;">
                 <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1" style="overflow: hidden; width: auto; height: 343px;">
                     <ul class="chats" data-bind="foreach: messages">
-                        <li class="in">
-                            <img class="avatar" alt="" data-bind="attr: { src: Owner.Avatar }">
+                        <li data-bind="css: direction">
+                            <img class="avatar" alt="" data-bind="attr: { src: '/Content/Assets/img/' + Owner.Avatar }">
                             <div class="message">
                                 <span class="arrow"></span>
-                                <a href="#" class="name" data-bind="text: Owner.UserName"></a>
+                                <a href="#" class="name" data-bind="text: Owner.UserNick"></a>
                                 <span class="datetime" data-bind="text: Time"></span>
                                 <span class="body" data-bind="text: Body"></span>
                             </div>
