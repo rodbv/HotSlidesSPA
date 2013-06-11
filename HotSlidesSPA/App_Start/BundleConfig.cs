@@ -13,6 +13,7 @@ namespace HotSlidesSPA
             bundles.Add(
               new ScriptBundle("~/scripts/vendor")
                 .Include("~/scripts/jquery-{version}.js")
+                .Include("~/scripts/jquery.signalR-1.1.2.min.js")
                 .Include("~/scripts/knockout-{version}.debug.js")
                 .Include("~/scripts/sammy-{version}.js")
                 .Include("~/scripts/toastr.js")
@@ -22,9 +23,8 @@ namespace HotSlidesSPA
                 .Include("~/scripts/modernizr-2.6.2.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/Content/Assets/plugins/breakpoints/breakpoints.js")
-              //  .Include("~/Content/Assets/scripts/app.js")
-               // .Include("~/Content/Assets/plugins/uniform/jquery.uniform.min.js")
-
+                //  .Include("~/Content/Assets/scripts/app.js")
+                // .Include("~/Content/Assets/plugins/uniform/jquery.uniform.min.js")
                 );
 
             bundles.Add(
